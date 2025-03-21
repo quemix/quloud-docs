@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="ja" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>6. 原子構造モデリング</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/my_theme.css?v=58559228" />
+
+  
+  
+        <script src="../_static/jquery.js?v=8dae8fb0"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=c033477b"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/translations.js?v=4dbe4bdc"></script>
+        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="検索" href="../search.html" />
+    <link rel="next" title="7. 計算ジョブの登録２（GUIを用いる方法）" href="calculation.html" />
+    <link rel="prev" title="5. サイドメニュー" href="side.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            Technical Notes
+          </a>
+              <div class="version">
+                2025.2.22
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="dashboard.html">1. ダッシュボード（トップ画面）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobs_and_models_atom.html">2. 原子構造の登録</a></li>
+<li class="toctree-l1"><a class="reference internal" href="job1.html">3. 計算ジョブの登録１（入力ファイルのアップロードによる方法）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jobdetail.html">4. 登録情報詳細</a></li>
+<li class="toctree-l1"><a class="reference internal" href="side.html">5. サイドメニュー</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">6. 原子構造モデリング</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#id2">6.1. 基本モデリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">6.2. 表面スラブモデル</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">6.3. 界面モデリング</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id5">6.4. 分子挿入</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id6">6.5. 孤立分子のスーパーセル</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="calculation.html">7. 計算ジョブの登録２（GUIを用いる方法）</a></li>
+<li class="toctree-l1"><a class="reference internal" href="runjob.html">8. 計算ジョブの実行</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">9. 入出力ファイルとログ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="visualization.html">10. 計算結果の可視化</a></li>
+<li class="toctree-l1"><a class="reference internal" href="header.html">11. ヘッダーメニュー（各種管理）</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Technical Notes</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active"><span class="section-number">6. </span>原子構造モデリング</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/source/modeling.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="id1">
+<h1><span class="section-number">6. </span>原子構造モデリング<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
+<section id="id2">
+<h2><span class="section-number">6.1. </span>基本モデリング<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[E_{\rm TF}\left[ \rho \right]
+= C_{\rm F} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{5/3}
++ \int d\boldsymbol{r} v(\boldsymbol{r}) \rho(\boldsymbol{r})
++ E_{\rm H} \left[ \rho \right]\]</div>
+<div class="math notranslate nohighlight">
+\[C_{\rm F} = \frac{3}{10} \left( 3\pi^2 \right)^{2/3}\]</div>
+<p>最小化すべき汎関数は、電子数に対する制約条件を付けて</p>
+<div class="math notranslate nohighlight">
+\[F_{\rm TF}\left[ \rho \right]
+= C_{\rm F} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{5/3}
++ \int d\boldsymbol{r} v(\boldsymbol{r}) \rho(\boldsymbol{r})
++ E_{\rm H} \left[ \rho \right]
+- \mu \left( \int d\boldsymbol{r} \rho(\boldsymbol{r}) - N \right)\]</div>
+<p>となる。電子数に対する制約条件の項は以下のモデルでも全て共通である。</p>
+</section>
+<section id="id3">
+<h2><span class="section-number">6.2. </span>表面スラブモデル<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[E_{\rm TFD}\left[ \rho \right]
+= C_{\rm F} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{5/3}
++ \int d\boldsymbol{r} v(\boldsymbol{r}) \rho(\boldsymbol{r})
++ E_{\rm H} \left[ \rho \right]
+- C_{\rm x} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{4/3}\]</div>
+<div class="math notranslate nohighlight">
+\[C_{\rm x} = \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3}\]</div>
+</section>
+<section id="id4">
+<h2><span class="section-number">6.3. </span>界面モデリング<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[T_{\rm W}\left[ \rho \right] = C_{\rm W}
+\int d\boldsymbol{r}
+\frac{\left| \nabla\rho(\boldsymbol{r}) \right|^2}{\rho(\boldsymbol{r})}\]</div>
+<div class="math notranslate nohighlight">
+\[C_{\rm W} = \frac{\hbar^2}{8m}\]</div>
+<p>Thomas-Fermi-Weiszacker model</p>
+<div class="math notranslate nohighlight">
+\[E_{\rm TF\lambda W}\left[ \rho \right]
+= E_{\rm TF}\left[ \rho \right] + \lambda T_{\rm W}\left[ \rho \right]\]</div>
+<p>Thomas-Fermi-Dirac-Weiszacker model</p>
+<div class="math notranslate nohighlight">
+\[E_{\rm TFD\lambda W}\left[ \rho \right]
+= E_{\rm TFD}\left[ \rho \right] + \lambda T_{\rm W}\left[ \rho \right]\]</div>
+</section>
+<section id="id5">
+<h2><span class="section-number">6.4. </span>分子挿入<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{ \delta T_{\rm W}\left[ \rho \right] }{\delta \rho(\boldsymbol{s})}
+&amp;= - C_{\rm W}
+\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
++ C_{\rm W}
+\int d\boldsymbol{r}
+\frac{1}{\rho(\boldsymbol{r})}
+\frac{ \delta }{\delta \rho(\boldsymbol{s})}
+\left| \nabla\rho(\boldsymbol{r}) \right|^2 \\
+&amp;= - C_{\rm W}
+\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
++ 2C_{\rm W}
+\int d\boldsymbol{r}
+\frac{\nabla\rho(\boldsymbol{r})}{\rho(\boldsymbol{r})}
+\cdot
+\nabla \delta(\boldsymbol{r}-\boldsymbol{s}) \\
+&amp;= - C_{\rm W}
+\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
+- 2C_{\rm W}
+\int d\boldsymbol{r}
+\delta(\boldsymbol{r}-\boldsymbol{s})
+\nabla
+\cdot
+\left(
+\frac{\nabla\rho(\boldsymbol{r})}{\rho(\boldsymbol{r})}
+\right) \\
+&amp;= C_{\rm W}
+\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
+- 2C_{\rm W}
+\frac{\nabla^2\rho(\boldsymbol{s})}{\rho(\boldsymbol{s})}\end{split}\]</div>
+</section>
+<section id="id6">
+<h2><span class="section-number">6.5. </span>孤立分子のスーパーセル<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
+<div class="math notranslate nohighlight">
+\[T_{\rm W}\left( \rho_1, \rho_2, \cdots, \rho_{N_{\rm grid}} \right) = C_{\rm W}
+\sum_{i=1}^{N_{\rm grid}}
+\frac{ \left(g^x_i\right)^2 + \left(g^y_i\right)^2 + \left(g^z_i\right)^2 }{\rho_i}
+\Delta V\]</div>
+<div class="math notranslate nohighlight">
+\[g_i^{\xi} = \sum_{j=1}^{N_{\rm grid}} C^{\xi}_{ij} \rho_j
+\quad
+\left( \xi = x,y,z \right)\]</div>
+<p>汎関数微分</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}\frac{\partial T_{\rm W}}{\partial \rho_p}
+= &amp;- C_{\rm W} \Delta V
+\frac{ \left(g^x_p\right)^2 + \left(g^y_p\right)^2 + \left(g^z_p\right)^2 }{\rho_p^2} \\
+&amp;+ 2 C_{\rm W} \Delta V \sum_{i=1}^{N_{\rm grid}}
+\frac{ g^x_i C_{ip}^x + g^y_i C_{ip}^y + g^z_i C_{ip}^z }{\rho_i}\end{split}\]</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="side.html" class="btn btn-neutral float-left" title="5. サイドメニュー" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="calculation.html" class="btn btn-neutral float-right" title="7. 計算ジョブの登録２（GUIを用いる方法）" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, Quemix inc.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
