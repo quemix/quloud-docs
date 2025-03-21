@@ -16,7 +16,6 @@
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/translations.js?v=4dbe4bdc"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -33,10 +32,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Technical Notes
+            Quloud
           </a>
               <div class="version">
-                2025.2.22
+                2025.3.21
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -56,8 +55,6 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#id3">2.2. ファイルアップロードによる登録</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id4">2.2.1. 対応ファイル形式</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id5">2.2.2. スピン分極パラメータ</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#pz81">2.2.3. 相関エネルギー＆ポテンシャル（PZ81）</a></li>
 </ul>
 </li>
 </ul>
@@ -79,7 +76,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Technical Notes</a>
+          <a href="../index.html">Quloud</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -103,10 +100,6 @@
 <h2><span class="section-number">2.1. </span>外部データベースからの登録<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <section id="material-project">
 <h3><span class="section-number">2.1.1. </span>結晶構造（Material Project）<a class="headerlink" href="#material-project" title="Link to this heading"></a></h3>
-<div class="math notranslate nohighlight">
-\[E_{\rm x} \left[ \rho^\alpha, \rho^\beta \right]
-  = \frac{1}{2} E_{\rm x} \left[ 2\rho^\alpha \right]
-  + \frac{1}{2} E_{\rm x} \left[ 2\rho^\beta \right]\]</div>
 </section>
 <section id="pubchem">
 <h3><span class="section-number">2.1.2. </span>分子構造（PubChem）<a class="headerlink" href="#pubchem" title="Link to this heading"></a></h3>
@@ -116,58 +109,6 @@
 <h2><span class="section-number">2.2. </span>ファイルアップロードによる登録<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
 <section id="id4">
 <h3><span class="section-number">2.2.1. </span>対応ファイル形式<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
-<div class="math notranslate nohighlight">
-\[E_{\rm x} \left[ \rho \right] = \int d\boldsymbol{r} \rho(\boldsymbol{r})
-\varepsilon_{\rm x} \left[ \rho \right] (\boldsymbol{r})\]</div>
-<div class="math notranslate nohighlight">
-\[\varepsilon_{\rm x} \left[ \rho \right](\boldsymbol{r})
-= -\frac{3}{4} \left( \frac{3}{\pi} \right)^\frac{1}{3}
-               \left( \rho(\boldsymbol{r}) \right)^\frac{1}{3}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}v_{\rm x} \left[ \rho \right](\boldsymbol{r})
-&amp; = &amp; \frac{ \delta E_{\rm x}\left[ \rho \right] }{ \delta\rho(\boldsymbol{r}) }
-= \varepsilon_{\rm x} \left[ \rho \right](\boldsymbol{r})
--\frac{1}{4} \left( \frac{3}{\pi} \right)^\frac{1}{3}
-             \left( \rho(\boldsymbol{r}) \right)^\frac{1}{3}
-\\
-&amp; = &amp; -\left( \frac{3}{\pi} \right)^\frac{1}{3}
-       \left( \rho(\boldsymbol{r}) \right)^\frac{1}{3}
-= \frac{4}{3} \varepsilon_{\rm x} \left[ \rho \right](\boldsymbol{r})\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}v_{\rm x}^{\sigma} \left[ \rho^\alpha, \rho^\beta \right](\boldsymbol{r})
-&amp; = &amp; \frac{ \delta E_{\rm x} \left[ \rho^\alpha, \rho^\beta \right] }
-       { \delta\rho^{\sigma}(\boldsymbol{r}) }
-= \left. \frac{ \delta E_{\rm x}\left[ \rho \right] }
-              { \delta\rho(\boldsymbol{r}) } \right|_{\rho=2\rho^\sigma}
-\\
-&amp; = &amp; -\left( \frac{3}{\pi} \right)^\frac{1}{3}
-\left( 2\rho^\sigma(\boldsymbol{r}) \right)^\frac{1}{3}\end{split}\]</div>
-</section>
-<section id="id5">
-<h3><span class="section-number">2.2.2. </span>スピン分極パラメータ<a class="headerlink" href="#id5" title="Link to this heading"></a></h3>
-<p><span class="math notranslate nohighlight">\(\rho=\rho^\alpha+\rho^\beta\)</span> として、スピン分極パラメータ <span class="math notranslate nohighlight">\(\zeta\)</span> を</p>
-<div class="math notranslate nohighlight">
-\[\zeta = \frac{ \rho^\alpha - \rho^\beta }{ \rho }\]</div>
-<p>で定義する。これを用いてスピン密度は</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\rho^\alpha &amp; = &amp; \frac{1}{2} \left( 1 + \zeta \right) \rho
-\\
-\rho^\beta &amp; = &amp; \frac{1}{2} \left( 1 - \zeta \right) \rho\end{split}\]</div>
-<p>と書ける。スピン分極がある場合の交換エネルギーを<span class="math notranslate nohighlight">\(\rho, \zeta\)</span> を用いて書き換える事を考える。この書き換えは、交換エネルギーに対しては特に必要ないが、相関エネルギーのスピン密度依存性を交換エネルギーと同じ形にとるという方針で導入するために必要となる。</p>
-</section>
-<section id="pz81">
-<h3><span class="section-number">2.2.3. </span>相関エネルギー＆ポテンシャル（PZ81）<a class="headerlink" href="#pz81" title="Link to this heading"></a></h3>
-<div class="math notranslate nohighlight">
-\[E_{\rm c} \left[ \rho, \zeta \right] = \int d\boldsymbol{r} \rho(\boldsymbol{r})
-\varepsilon_{\rm c}\left[\rho,\zeta\right](\boldsymbol{r})\]</div>
-<div class="math notranslate nohighlight">
-\[\varepsilon_{\rm c}^{\rm U,P} =
-\frac{\gamma^{\rm U,P}} {1 + \beta_1^{\rm U,P} \sqrt{r_{\rm s}} + \beta_2^{\rm U,P}r_{\rm s}}
-\qquad \left( r_{\rm s} &gt; 1 \right)\]</div>
-<div class="math notranslate nohighlight">
-\[\varepsilon_{\rm c}^{\rm U,P} = A^{U,P} \ln{r_{\rm s}} + B^{\rm U,P}
-+ C^{\rm U,P} r_{\rm s} \ln{r_{\rm s}} + D^{\rm U,P} r_{\rm s}
-\qquad \left( r_{\rm s} &lt; 1 \right)\]</div>
 </section>
 </section>
 </section>

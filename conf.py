@@ -6,10 +6,10 @@
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Technical Notes'
+project = 'Quloud'
 copyright = '2025, Quemix inc'
 author = 'Jun-Ichi Iwata'
-version = '2025.2.22'
+version = '2025.3.21'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

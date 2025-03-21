@@ -16,7 +16,6 @@
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/translations.js?v=4dbe4bdc"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -33,10 +32,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Technical Notes
+            Quloud
           </a>
               <div class="version">
-                2025.2.22
+                2025.3.21
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -66,7 +65,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Technical Notes</a>
+          <a href="../index.html">Quloud</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -86,132 +85,6 @@
              
   <section id="id1">
 <h1><span class="section-number">3. </span>計算ジョブの登録１（入力ファイルのアップロードによる方法）<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
-<p>格子座標（lattice coordinates, fractional coordinates または reduced coordinates とも呼ばれる）は
-格子ベクトルを基底にとった座標の指定である。カーテシアン座標（デカルト座標またはxyz座標）
-で <span class="math notranslate nohighlight">\((x,y,z) = (x_1, x_2, x_3)\)</span> という点は、格子座標では次のように表される。</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{pmatrix}
-x_1 \\
-x_2 \\
-x_3
-\end{pmatrix}
-=
-\begin{pmatrix}
-a_{11} &amp; a_{12} &amp; a_{13} \\
-a_{21} &amp; a_{22} &amp; a_{23} \\
-a_{31} &amp; a_{32} &amp; a_{33} \\
-\end{pmatrix}
-\begin{pmatrix}
-\alpha_1  \\
-\alpha_2 \\
-\alpha_3
-\end{pmatrix}
-\equiv
-A
-\begin{pmatrix}
-\alpha_1  \\
-\alpha_2 \\
-\alpha_3
-\end{pmatrix}\end{split}\]</div>
-<p>座標変換の行列 <span class="math notranslate nohighlight">\(A\)</span> は、格子ベクトルのxyz成分</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\boldsymbol{a}_1 =
-\begin{pmatrix}
-a_{1}^x \\
-a_{1}^y \\
-a_{1}^z
-\end{pmatrix}
-\equiv
-\begin{pmatrix}
-a_{11} \\
-a_{21} \\
-a_{31}
-\end{pmatrix}
-, \quad
-\boldsymbol{a}_2 =
-\begin{pmatrix}
-a_{2}^x \\
-a_{2}^y \\
-a_{2}^z
-\end{pmatrix}
-\equiv
-\begin{pmatrix}
-a_{12} \\
-a_{22} \\
-a_{32}
-\end{pmatrix}
-, \quad
-\boldsymbol{a}_3 =
-\begin{pmatrix}
-a_{3}^x \\
-a_{3}^y \\
-a_{3}^z
-\end{pmatrix}
-\equiv
-\begin{pmatrix}
-a_{13} \\
-a_{23} \\
-a_{33}
-\end{pmatrix}\end{split}\]</div>
-<p>を並べたものである。同様に逆格子ベクトルのxyz成分を並べた行列を考え、</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}B \equiv
-\begin{pmatrix}
-b_{11} &amp; b_{12} &amp; b_{13} \\
-b_{21} &amp; b_{22} &amp; b_{23} \\
-b_{31} &amp; b_{32} &amp; b_{33} \\
-\end{pmatrix}\end{split}\]</div>
-<p>とおく。格子ベクトルと逆格子ベクトルは</p>
-<div class="math notranslate nohighlight">
-\[\boldsymbol{a}_i \cdot \boldsymbol{b}_j = 2\pi\delta_{ij}\]</div>
-<p>という関係を満たすので</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\begin{pmatrix}
-a_{11} &amp; a_{21} &amp; a_{31} \\
-a_{12} &amp; a_{22} &amp; a_{32} \\
-a_{13} &amp; a_{23} &amp; a_{33} \\
-\end{pmatrix}
-\begin{pmatrix}
-b_{11} &amp; b_{12} &amp; b_{13} \\
-b_{21} &amp; b_{22} &amp; b_{23} \\
-b_{31} &amp; b_{32} &amp; b_{33} \\
-\end{pmatrix}
-=
-A^\top B = 2\pi I\end{split}\]</div>
-<div class="math notranslate nohighlight">
-\[\begin{split}\frac{1}{2\pi}A^\top = B^{-1}
-\\
-\frac{1}{2\pi}B^\top = A^{-1}\end{split}\]</div>
-<p>のように、転置行列が互いの逆行列となることがわかる。</p>
-<p>RSDFTのプログラム内部では、原子座標やグリッド点は基本的に格子座標で扱っている。
-ただし基底を <span class="math notranslate nohighlight">\(\boldsymbol{a}_1, \boldsymbol{a}_2, \boldsymbol{a}_3\)</span>
-そのものではなく、各方向の単位ベクトルにとっている場合もある。</p>
-<p>RSDFTでは微分演算子に対して次の座標変換</p>
-<div class="math notranslate nohighlight">
-\[\frac{\partial f}{\partial x_i}
-= \sum_{j=1}^3 \frac{\partial f}{\partial \alpha_j}\frac{\partial \alpha_j}{\partial x_i}
-= \sum_{j=1}^3 \frac{\partial f}{\partial \alpha_j} \frac{b_{ij}}{2\pi}\]</div>
-<p>を行なった後 <span class="math notranslate nohighlight">\(\frac{\partial f}{\partial \alpha_i}\)</span> 等に対して差分化を行う。２階微分は</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\frac{\partial^2 f}{\partial x_i^2}
-&amp;=
-\frac{\partial}{\partial x_i}
-\left(
-\sum_{j=1}^3 \frac{\partial f}{\partial \alpha_j} \frac{b_{ij}}{2\pi}
-\right) \\
-&amp;=
-\sum_{k=1}^3 \frac{\partial}{\partial \alpha_k}
-\left(
-\sum_{j=1}^3 \frac{\partial f}{\partial \alpha_j} \frac{b_{ij}}{2\pi}
-\right)
-\frac{b_{ik}}{2\pi} \\
-&amp;=
-\sum_{k=1}^3
-\sum_{j=1}^3 \frac{\partial^2 f}{\partial \alpha_j \partial \alpha_k} \frac{b_{ij}}{2\pi}
-\frac{b_{ik}}{2\pi} \\\end{split}\]</div>
-<p>となり、格子座標が斜交座標の場合クロスターム
-（ <span class="math notranslate nohighlight">\(\frac{\partial^2 f}{\partial \alpha_1 \partial \alpha_2}\)</span>
-等 ）が現れる。</p>
 </section>
 
 

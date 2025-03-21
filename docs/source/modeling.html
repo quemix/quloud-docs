@@ -16,7 +16,6 @@
         <script src="../_static/doctools.js?v=888ff710"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/translations.js?v=4dbe4bdc"></script>
-        <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="索引" href="../genindex.html" />
     <link rel="search" title="検索" href="../search.html" />
@@ -33,10 +32,10 @@
           
           
           <a href="../index.html" class="icon icon-home">
-            Technical Notes
+            Quloud
           </a>
               <div class="version">
-                2025.2.22
+                2025.3.21
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -73,7 +72,7 @@
 
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">Technical Notes</a>
+          <a href="../index.html">Quloud</a>
       </nav>
 
       <div class="wy-nav-content">
@@ -95,101 +94,18 @@
 <h1><span class="section-number">6. </span>原子構造モデリング<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
 <section id="id2">
 <h2><span class="section-number">6.1. </span>基本モデリング<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-<div class="math notranslate nohighlight">
-\[E_{\rm TF}\left[ \rho \right]
-= C_{\rm F} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{5/3}
-+ \int d\boldsymbol{r} v(\boldsymbol{r}) \rho(\boldsymbol{r})
-+ E_{\rm H} \left[ \rho \right]\]</div>
-<div class="math notranslate nohighlight">
-\[C_{\rm F} = \frac{3}{10} \left( 3\pi^2 \right)^{2/3}\]</div>
-<p>最小化すべき汎関数は、電子数に対する制約条件を付けて</p>
-<div class="math notranslate nohighlight">
-\[F_{\rm TF}\left[ \rho \right]
-= C_{\rm F} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{5/3}
-+ \int d\boldsymbol{r} v(\boldsymbol{r}) \rho(\boldsymbol{r})
-+ E_{\rm H} \left[ \rho \right]
-- \mu \left( \int d\boldsymbol{r} \rho(\boldsymbol{r}) - N \right)\]</div>
-<p>となる。電子数に対する制約条件の項は以下のモデルでも全て共通である。</p>
 </section>
 <section id="id3">
 <h2><span class="section-number">6.2. </span>表面スラブモデル<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<div class="math notranslate nohighlight">
-\[E_{\rm TFD}\left[ \rho \right]
-= C_{\rm F} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{5/3}
-+ \int d\boldsymbol{r} v(\boldsymbol{r}) \rho(\boldsymbol{r})
-+ E_{\rm H} \left[ \rho \right]
-- C_{\rm x} \int d\boldsymbol{r} \left( \rho(\boldsymbol{r}) \right)^{4/3}\]</div>
-<div class="math notranslate nohighlight">
-\[C_{\rm x} = \frac{3}{4} \left( \frac{3}{\pi} \right)^{1/3}\]</div>
 </section>
 <section id="id4">
 <h2><span class="section-number">6.3. </span>界面モデリング<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
-<div class="math notranslate nohighlight">
-\[T_{\rm W}\left[ \rho \right] = C_{\rm W}
-\int d\boldsymbol{r}
-\frac{\left| \nabla\rho(\boldsymbol{r}) \right|^2}{\rho(\boldsymbol{r})}\]</div>
-<div class="math notranslate nohighlight">
-\[C_{\rm W} = \frac{\hbar^2}{8m}\]</div>
-<p>Thomas-Fermi-Weiszacker model</p>
-<div class="math notranslate nohighlight">
-\[E_{\rm TF\lambda W}\left[ \rho \right]
-= E_{\rm TF}\left[ \rho \right] + \lambda T_{\rm W}\left[ \rho \right]\]</div>
-<p>Thomas-Fermi-Dirac-Weiszacker model</p>
-<div class="math notranslate nohighlight">
-\[E_{\rm TFD\lambda W}\left[ \rho \right]
-= E_{\rm TFD}\left[ \rho \right] + \lambda T_{\rm W}\left[ \rho \right]\]</div>
 </section>
 <section id="id5">
 <h2><span class="section-number">6.4. </span>分子挿入<a class="headerlink" href="#id5" title="Link to this heading"></a></h2>
-<div class="math notranslate nohighlight">
-\[\begin{split}\frac{ \delta T_{\rm W}\left[ \rho \right] }{\delta \rho(\boldsymbol{s})}
-&amp;= - C_{\rm W}
-\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
-+ C_{\rm W}
-\int d\boldsymbol{r}
-\frac{1}{\rho(\boldsymbol{r})}
-\frac{ \delta }{\delta \rho(\boldsymbol{s})}
-\left| \nabla\rho(\boldsymbol{r}) \right|^2 \\
-&amp;= - C_{\rm W}
-\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
-+ 2C_{\rm W}
-\int d\boldsymbol{r}
-\frac{\nabla\rho(\boldsymbol{r})}{\rho(\boldsymbol{r})}
-\cdot
-\nabla \delta(\boldsymbol{r}-\boldsymbol{s}) \\
-&amp;= - C_{\rm W}
-\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
-- 2C_{\rm W}
-\int d\boldsymbol{r}
-\delta(\boldsymbol{r}-\boldsymbol{s})
-\nabla
-\cdot
-\left(
-\frac{\nabla\rho(\boldsymbol{r})}{\rho(\boldsymbol{r})}
-\right) \\
-&amp;= C_{\rm W}
-\frac{\left| \nabla\rho(\boldsymbol{s}) \right|^2}{\left(\rho(\boldsymbol{s})\right)^2}
-- 2C_{\rm W}
-\frac{\nabla^2\rho(\boldsymbol{s})}{\rho(\boldsymbol{s})}\end{split}\]</div>
 </section>
 <section id="id6">
 <h2><span class="section-number">6.5. </span>孤立分子のスーパーセル<a class="headerlink" href="#id6" title="Link to this heading"></a></h2>
-<div class="math notranslate nohighlight">
-\[T_{\rm W}\left( \rho_1, \rho_2, \cdots, \rho_{N_{\rm grid}} \right) = C_{\rm W}
-\sum_{i=1}^{N_{\rm grid}}
-\frac{ \left(g^x_i\right)^2 + \left(g^y_i\right)^2 + \left(g^z_i\right)^2 }{\rho_i}
-\Delta V\]</div>
-<div class="math notranslate nohighlight">
-\[g_i^{\xi} = \sum_{j=1}^{N_{\rm grid}} C^{\xi}_{ij} \rho_j
-\quad
-\left( \xi = x,y,z \right)\]</div>
-<p>汎関数微分</p>
-<div class="math notranslate nohighlight">
-\[\begin{split}\frac{\partial T_{\rm W}}{\partial \rho_p}
-= &amp;- C_{\rm W} \Delta V
-\frac{ \left(g^x_p\right)^2 + \left(g^y_p\right)^2 + \left(g^z_p\right)^2 }{\rho_p^2} \\
-&amp;+ 2 C_{\rm W} \Delta V \sum_{i=1}^{N_{\rm grid}}
-\frac{ g^x_i C_{ip}^x + g^y_i C_{ip}^y + g^z_i C_{ip}^z }{\rho_i}\end{split}\]</div>
 </section>
 </section>
 
