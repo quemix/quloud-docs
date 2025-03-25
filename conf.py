@@ -9,7 +9,7 @@
 project = 'Quloud'
 copyright = '2025, Quemix inc'
 author = 'Jun-Ichi Iwata'
-version = '2025.3.21'
+version = 'ver. 5.1.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
