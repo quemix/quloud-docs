@@ -35,7 +35,7 @@
             Quloud
           </a>
               <div class="version">
-                2025.3.21
+                ver. 5.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -53,10 +53,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#pubchem">2.1.2. 分子構造（PubChem）</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. ファイルアップロードによる登録</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id4">2.2.1. 対応ファイル形式</a></li>
-</ul>
-</li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">2.2. ファイルアップロードによる登録</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="job1.html">3. 計算ジョブの登録１（入力ファイルのアップロードによる方法）</a></li>
@@ -100,16 +97,34 @@
 <h2><span class="section-number">2.1. </span>外部データベースからの登録<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
 <section id="material-project">
 <h3><span class="section-number">2.1.1. </span>結晶構造（Material Project）<a class="headerlink" href="#material-project" title="Link to this heading"></a></h3>
+<p>「Search in Crystal DB」のボタンをクリックすると、図 8のようなデータベース検索のウィンドウが現れます。
+ここで元素名や組成、バンドギャップ等の物性値を入力し「SEARCH」をクリックすると、
+条件に合致する物質の原子構造が一覧で表示されます（図 9）。登録したい原子構造にチェックを入れ、
+ウィンドウの下部にある「SAVE &amp; CLOSE」をクリックすると、検索ウィンドウが閉じて
+（原子構造が登録された状態で）元の画面に戻ります。最後に「REGISTER」をクリックすると、
+選択された原子構造が一つのジョブとしてQuloudに登録されます。</p>
 </section>
 <section id="pubchem">
 <h3><span class="section-number">2.1.2. </span>分子構造（PubChem）<a class="headerlink" href="#pubchem" title="Link to this heading"></a></h3>
+<p>「Search in Molecule DB」をクリックすると、分子の名前や化学式で分子の座標データを検索する
+モードとなる。（現在、分子構造をそのまま計算できるソフトは搭載されておらず、結晶や表面といった
+周期系と組み合わせたモデルを作成する目的でのみ利用できる）</p>
 </section>
 </section>
 <section id="id3">
 <h2><span class="section-number">2.2. </span>ファイルアップロードによる登録<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<section id="id4">
-<h3><span class="section-number">2.2.1. </span>対応ファイル形式<a class="headerlink" href="#id4" title="Link to this heading"></a></h3>
-</section>
+<p>「File Upload」のボタンをクリックすると図 7のようなファイルを選択するウィンドウが現れます。
+複数のファイルをアップロードする事も可能です。アップロード可能な原子構造のフォーマットは現在</p>
+<ul class="simple">
+<li><p>CIF</p></li>
+<li><p>XYZ</p></li>
+<li><p>POSCAR（VASP形式）</p></li>
+<li><p>RSDFT形式</p></li>
+<li><p>OpenMX入力ファイル</p></li>
+<li><p>Quntum ESPRESSO入力ファイル</p></li>
+</ul>
+<p>となっています。ファイル選択後「REGISTER」ボタンをクリックすると、
+アップロードした原子構造が一つのジョブとしてQuloudに登録されます。</p>
 </section>
 </section>
 

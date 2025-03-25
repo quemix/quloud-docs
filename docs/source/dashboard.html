@@ -35,7 +35,7 @@
             Quloud
           </a>
               <div class="version">
-                2025.3.21
+                ver. 5.1.0
               </div>
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
@@ -47,8 +47,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">1. ダッシュボード（トップ画面）</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#jobs-models">1.1. JOBS &amp; MODELS</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#projects">1.2. PROJECTS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#materials">1.1. MATERIALS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#jobs">1.2. JOBS</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#projects">1.3. PROJECTS</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="jobs_and_models_atom.html">2. 原子構造の登録</a></li>
@@ -89,11 +90,63 @@
              
   <section id="id1">
 <h1><span class="section-number">1. </span>ダッシュボード（トップ画面）<a class="headerlink" href="#id1" title="Link to this heading"></a></h1>
-<section id="jobs-models">
-<h2><span class="section-number">1.1. </span>JOBS &amp; MODELS<a class="headerlink" href="#jobs-models" title="Link to this heading"></a></h2>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20154926.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20154926.png" />
+<p>上図はQuloudのログイン直後の画面です。これから計算を始めていくにあたって重要な要素として、
+MATERIALS，JOBS，PROJECTS があります。</p>
+<section id="materials">
+<h2><span class="section-number">1.1. </span>MATERIALS<a class="headerlink" href="#materials" title="Link to this heading"></a></h2>
+<p>MATERIALSのタイトルの右横にある３つのアイコンのうち、真ん中の⊕をクリックすると、
+次のような画面に遷移します。</p>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20160524.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20160524.png" />
+<p>ここでは計算したい物質の原子座標ファイルを登録します。
+「Atomic Structures」のメニュー内には３つのボタンがあり、それぞれ</p>
+<ul class="simple">
+<li><p>結晶構造データベース（Materials Project）で検索＆取得</p></li>
+<li><p>分子構造データベース（PubChem）で検索＆取得</p></li>
+<li><p>手持ちのファイルをアップロードする</p></li>
+</ul>
+<p>という登録方法に対応しています。データベース検索の方法等については後述することにして、
+とにかく原子座標ファイルが登録できたら、下記のように、
+最初の画面の「MATERIALS」の欄に登録した情報が追加されます。</p>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20161331.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20161331.png" />
+</section>
+<section id="jobs">
+<h2><span class="section-number">1.2. </span>JOBS<a class="headerlink" href="#jobs" title="Link to this heading"></a></h2>
+<p>登録したMATERIALをダブルクリックする（またはメニューを開いて「Show Detail」のボタンをクリックする）と、
+次のような、そのMATERIAL専用の画面に移動することができます。</p>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20164021.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20164021.png" />
+<p>この画面から、原子構造のモデリングを行ったり、各種計算を行ったりすることができます。
+これらをQuloudでは「JOBS」というデータとして登録します。</p>
+<p>具体的なモデリングや計算設定の方法については後述することにして、ここでは例として、
+Siのバンド計算のジョブ作成と、コンベンショナルセル（立方体セル）にするモデリングを実行したとします。
+すると、以下のように、最初の画面の「JOBS」の欄にデータが２つ追加されるのがわかります。</p>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20165110.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20165110.png" />
 </section>
 <section id="projects">
-<h2><span class="section-number">1.2. </span>PROJECTS<a class="headerlink" href="#projects" title="Link to this heading"></a></h2>
+<h2><span class="section-number">1.3. </span>PROJECTS<a class="headerlink" href="#projects" title="Link to this heading"></a></h2>
+<p>画面上部左にある「PROJECT」をクリックすると、下図のようなメニューが開く。
+ここでは「プロジェクト」というものを作成したり、既存のプロジェクトに切り替えたりすることができる。
+プロジェクトを切り替えると、MATERIAL や JOB は、
+そのプロジェクトに登録されているものだけが表示されるようになるので、データの整理等に利用できる。
+デフォルトで「Quloud Project」というものが用意されており、全ての MATERIALS および JOBS は自動的に、
+このプロジェクトに属するものとして登録される。</p>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20170010.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20170010.png" />
+<p>「Create New Project」をクリックすると、新しいプロジェクトを作ることができる。
+プロジェクトが増えると、画面上部の「PROJECTS」をクリックしたとき、例えば下図のようにプロジェクト
+の一覧が表示されるので、使用したいプロジェクトの行をクリックすれば、
+そのプロジェクトに切り替わるようになっている。（プロジェクトを切り替えると、
+画面上部の「PROJECTS」の右側に選択中のプロジェクト名が表示される）</p>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20171040.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20171040.png" />
+<p>プロジェクト一覧の各行の右端に「detail」というボタンがあり、これをクリックすると、
+下図のようなプロジェクトの専用画面に遷移することができる。</p>
+<img alt="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20171807.png" src="../_images/%E3%82%B9%E3%82%AF%E3%83%AA%E3%83%BC%E3%83%B3%E3%82%B7%E3%83%A7%E3%83%83%E3%83%88%202025-03-24%20171807.png" />
+<p>この画面では、既存の MATERIAL や JOB をプロジェクトに登録したり、逆に登録を抹消したりすることができる
+（登録を抹消しても Quloud Project のメンバーではあり続けるので消えることはない）。
+さらにプロジェクト自体の削除も行える（この場合も所属していたMATERIALやJOBまで削除されるわけではない）。</p>
+<p>プロジェクトの重要な機能として、例えばプロジェクト内のMATERIALからJOBを作ると、
+そのJOBも自動的にプロジェクトのメンバーとして登録されるというものがある
+（ただし元になったMATERIALが複数のプロジェクトに属していたとしても、そこから派生したJOBは、
+現在選択中のプロジェクトにのみ、自動的に登録される）。</p>
 </section>
 </section>
 
